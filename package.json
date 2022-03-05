@@ -1,0 +1,25 @@
+{
+  "name": "karibi-ecommerce",
+  "version": "1.0.0",
+  "description": "This is a website app for users. Test karibi",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DianaCarolina3/karibi-ecommerce.git"
+  },
+  "keywords": [
+    "javascript",
+    "ecommerce",
+    "back",
+    "front"
+  ],
+  "author": "Diana Campuzano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DianaCarolina3/karibi-ecommerce/issues"
+  },
+  "homepage": "https://github.com/DianaCarolina3/karibi-ecommerce#readme"
+}
