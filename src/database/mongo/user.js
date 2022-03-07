@@ -1,4 +1,5 @@
 const User = require('../../models/user')
+const Authen = require('../../models/authen')
 
 const list = async () => {
   const data = await User.find().exec()
@@ -29,6 +30,10 @@ const insert = async (data) => {
 
 const remove = async (id) => {
   const data = await User.findByIdAndDelete(id)
+
+  const user = data.username
+
+  await Authen.findOneAndRemove({ username: user })
 
   return data
 }

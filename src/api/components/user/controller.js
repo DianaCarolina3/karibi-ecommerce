@@ -4,7 +4,9 @@ const store = require('../../../database/mongo/user')
 const storeAuth = require('../../../database/mongo/authen')
 
 const list = async () => {
-  return await store.list()
+  const data = await store.list()
+
+  return data
 }
 
 const get = async (id) => {
@@ -12,12 +14,14 @@ const get = async (id) => {
     throw error('Id invalid or no id', 400)
   }
 
-  return await store.get(id)
+  const data = await store.get(id)
+
+  return data
 }
 
 const insert = async (body) => {
   const pass = body.password
-  const saltRounds = 10
+  const saltRounds = 5
   const salt = bcrypt.genSaltSync(saltRounds)
   const passwordHash = bcrypt.hashSync(pass, salt)
 
@@ -48,6 +52,7 @@ const remove = async (id) => {
   if (!id) {
     throw error('Id invalid or no id', 400)
   }
+
   return await store.remove(id)
 }
 

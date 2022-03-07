@@ -6,12 +6,12 @@
       name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- Style -->
     <link rel="stylesheet" href="./assets/css/style.css" />
 
-    <!-- Font of Google-->
+    <!--  Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,14 +22,13 @@
     <!-- Icon -->
     <link rel="icon" type="image/x-icon" href="./assets/icon/favicon.ico" />
 
-    <!-- Tittle -->
-    <title>Karibi Ecommerce | Home</title>
+    <!-- Title -->
+    <title>Karibi Ecommerce | Sign up</title>
   </head>
 
   <body>
     <header class="header">
       <div class="header--logo">Karibi Ecommerce</div>
-
       <nav class="header--list">
         <ul class="header--list-menu">
           <li class="header--list-menu-item">
@@ -46,40 +45,56 @@
     </header>
 
     <main class="main">
-      <section class="hero">
-        <h1 class="hero--title">Handmade ceramics</h1>
-        <h2 class="hero--description">Painted clay ceramics made with love.</h2>
-        <a class="hero--button" href="./login.html"> Shop now </a>
-      </section>
-
-      <section class="about container">
-        <h3 class="about--title">About us</h3>
-        <div class="about--item">
-          <img
-            class="about--item-image"
-            src="./assets/image/ceramic-about.png"
-            alt="ceramic vases being watered"
-          />
-          <p class="about--item-image">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-            doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-            ut aliquip ex ea commodo consequat.
+      <section class="section-form section-form--sign">
+        <form class="form container" action="/kari/user/signup" method="POST">
+          <h1 class="form--title">Sign up</h1>
+          <div class="form--item">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Name"
+              required
+            />
+          </div>
+          <div class="form--item">
+            <label for="username">Username:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div class="form--item">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div class="form--item">
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button class="form--button" type="submit" value="Submit">
+            Sign up
+          </button>
+          <p class="form--register">
+            Already have an account? <a href="./login.html">Login</a>
           </p>
-        </div>
-        <div class="about--item">
-          <img
-            class="about--item-image"
-            src="./assets/image/ceramic-about-2.png"
-            alt="two cups of coffee under a table"
-          />
-          <p class="about--item-image">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-            doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-            ut aliquip ex ea commodo consequat.
-          </p>
-        </div>
+        </form>
       </section>
 
       <footer class="footer">

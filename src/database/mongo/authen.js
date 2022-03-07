@@ -56,7 +56,6 @@ const update = async (id, data) => {
 }
 
 const upsert = async (data) => {
-  console.log(await get(data.id))
   const ID = await get(data.id)
   if (ID) {
     return update(data)

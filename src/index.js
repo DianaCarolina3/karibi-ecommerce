@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }))
 
 // Public files
 
-app.use('/kari', express.static(path.join(__dirname, '/public')))
+app.use('/kari', express.static(path.join(__dirname, 'public')))
 
 // Routes
 router(app)

@@ -2,16 +2,22 @@ const router = require('express').Router()
 
 const controller = require('./controller')
 const response = require('../../../utils/response')
+const checkAuth = require('./secure')
 
 // ROUTER
-router.get('/list', list)
-router.get('/list/:id', get)
+router.get('/list', checkAuth('list'), list)
+router.get('/list/:id', checkAuth('get'), get)
 router.post('/login', login)
 
 function login(req, res, next) {
   controller
     .login(req.body.username, req.body.password, req.body.email)
     .then((data) => {
+      if (data) {
+        console.log(data)
+        res.redirect('/kari/shop.html')
+      }
+
       return response.success(req, res, data, 200)
     })
     .catch(next)

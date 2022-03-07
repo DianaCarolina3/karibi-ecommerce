@@ -10,7 +10,7 @@
     "prepare": "husky install",
     "lint": "eslint . --fix",
     "prettier": "prettier . --write",
-    "fix": "npm run prettier && npm run lint"
+    "fix": "npm run lint"
   },
   "repository": {
     "type": "git",

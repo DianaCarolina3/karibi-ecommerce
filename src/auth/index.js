@@ -8,7 +8,8 @@ const SECRET = config.jwt.secret
 const logIn = (pass) => {
   const dataPass = JSON.parse(JSON.stringify(pass))
 
-  return jwt.sign(dataPass, SECRET)
+  const logToken = jwt.sign(dataPass, SECRET)
+  return logToken
 }
 
 function verify(token) {
@@ -33,10 +34,9 @@ const check = {
     const decoded = decoderHeaderAuth(req)
 
     if (decoded.id !== id) {
-      throw error('Invalid token', 401)
+      throw error('Invalid token or id', 401)
     }
 
-    console.log('decoded', decoded)
     return decoded
   },
   Token: function (req) {
@@ -46,14 +46,12 @@ const check = {
 }
 
 const decoderHeaderAuth = (req) => {
-  const autorization = req.headers.autorization
+  const autorization = req.headers.authorization || ''
   const token = getToken(autorization)
   const decoded = verify(token)
 
-  console.log('autorization', autorization)
-  console.log('req.user', req.user)
   req.user = decoded
-  console.log('decoded verify', decoded)
+
   return decoded
 }
 

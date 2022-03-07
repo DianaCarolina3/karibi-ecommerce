@@ -2,12 +2,13 @@ const router = require('express').Router()
 
 const controller = require('./controller')
 const response = require('../../../utils/response')
+const checkAuth = require('./secure')
 
 // ROUTER
 router.get('/', list)
 router.get('/:id', get)
 router.post('/signup', insert)
-router.delete('/:id', remove)
+router.delete('/:id', checkAuth('delete'), remove)
 
 async function list(req, res, next) {
   try {
@@ -36,6 +37,10 @@ async function get(req, res, next) {
 async function insert(req, res, next) {
   try {
     const data = await controller.insert(req.body)
+
+    if (data) {
+      res.redirect('/kari/login.html')
+    }
 
     return response.success(req, res, data, 201)
   } catch (error) {
